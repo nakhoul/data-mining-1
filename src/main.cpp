@@ -12,6 +12,7 @@
 #include "Algorithm.h"
 #include "Apriori.h"
 #include "PCY.h"
+#include "Multihash.h"
 
 // input helper function
 std::vector<std::vector<int>> load(const std::string& filename) {
@@ -42,6 +43,7 @@ int main() {
 
 	algorithms.push_back(std::make_unique<Apriori>());
 	algorithms.push_back(std::make_unique<PCY>());
+	algorithms.push_back(std::make_unique<Multihash>());
 
 
 	std::vector<double> thresholds = { 0.01, 0.05, 0.10 };
