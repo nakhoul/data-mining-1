@@ -11,6 +11,7 @@
 
 #include "Algorithm.h"
 #include "Apriori.h"
+#include "PCY.h"
 
 // input helper function
 std::vector<std::vector<int>> load(const std::string& filename) {
@@ -40,6 +41,8 @@ int main() {
 	std::vector<std::unique_ptr<Algorithm>> algorithms;
 
 	algorithms.push_back(std::make_unique<Apriori>());
+	algorithms.push_back(std::make_unique<PCY>());
+
 
 	std::vector<double> thresholds = { 0.01, 0.05, 0.10 };
 	std::vector<double> datasetSizes = { 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 };
@@ -67,6 +70,7 @@ int main() {
 				std::cout << "Support: " <<	 threshold * 100 << "% Chunk: " << chunk * 100 << "% Frequent Pairs: " << frequentPairs.size() << " Elapsed time: " << elapsedTime << "ms\n";
 			}
 		}
+		std::cout << "\n\n";
 	}
 
 	std::cin.get();
